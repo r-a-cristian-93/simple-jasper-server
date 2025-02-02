@@ -2,8 +2,7 @@
 `mvn clean spring-boot:run`
 
 * Go to
-https://localhost:8080/item-report/pdf
-https://localhost:8080/item-report/xml
+http://localhost:8080/reports/status_check?format=pdf
 
 # Deploy
 * Package in a single jar file

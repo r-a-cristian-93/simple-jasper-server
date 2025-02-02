@@ -1,9 +1,9 @@
 package com.jasper.server.web;
 
-import com.jasper.server.dao.ItemRepository;
 import com.jasper.server.jasper.JasperReportService;
 import java.io.IOException;
 import net.sf.jasperreports.engine.JRException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -14,30 +14,36 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ReportController {
 
   @Autowired
-  ItemRepository itemRepository;
-
-  @Autowired
   JasperReportService jasperReportService;
 
-  @GetMapping("item-report/{format}")
-  public ResponseEntity<Resource> getItemReport(@PathVariable String format)
-      throws JRException, IOException {
+  @GetMapping("reports/{reportName}")
+  public ResponseEntity<Resource> getReport(@PathVariable String reportName, @RequestParam String format) throws JRException, IOException {
+    ByteArrayResource resource = null;
 
-    byte[] reportContent = jasperReportService.getItemReport(itemRepository.findAll(), format);
+    try {
+      byte[] reportContent = jasperReportService.getReport(reportName, format);
+  
+      resource = new ByteArrayResource(reportContent);
+    }
+    catch (RuntimeException e) {
+      System.out.println(e);
 
-    ByteArrayResource resource = new ByteArrayResource(reportContent);
+      return ResponseEntity.status(500).body(null);
+    }
+
     return ResponseEntity.ok()
-        .contentType(MediaType.APPLICATION_OCTET_STREAM)
-        .contentLength(resource.contentLength())
-        .header(HttpHeaders.CONTENT_DISPOSITION,
-            ContentDisposition.attachment()
-                .filename("item-report." + format)
-                .build().toString())
-        .body(resource);
+      .contentType(MediaType.APPLICATION_OCTET_STREAM)
+      .contentLength(resource.contentLength())
+      .header(HttpHeaders.CONTENT_DISPOSITION,
+          ContentDisposition.attachment()
+              .filename(reportName + "." + format)
+              .build().toString())
+      .body(resource);
   }
 }
