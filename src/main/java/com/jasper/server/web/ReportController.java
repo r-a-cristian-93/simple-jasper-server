@@ -2,6 +2,8 @@ package com.jasper.server.web;
 
 import com.jasper.server.jasper.JasperReportService;
 import java.io.IOException;
+import java.util.Map;
+
 import net.sf.jasperreports.engine.JRException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +25,12 @@ public class ReportController {
   JasperReportService jasperReportService;
 
   @GetMapping("reports/{reportName}")
-  public ResponseEntity<Resource> getReport(@PathVariable String reportName, @RequestParam String format) throws JRException, IOException {
+  public ResponseEntity<Resource> getReport(@PathVariable String reportName, @RequestParam String fileFormat, @RequestParam Map<String, Object> reportParameters) throws JRException, IOException {
     ByteArrayResource resource = null;
 
     try {
-      byte[] reportContent = jasperReportService.getReport(reportName, format);
+      
+      byte[] reportContent = jasperReportService.getReport(reportName, fileFormat, reportParameters);
   
       resource = new ByteArrayResource(reportContent);
     }
@@ -42,7 +45,7 @@ public class ReportController {
       .contentLength(resource.contentLength())
       .header(HttpHeaders.CONTENT_DISPOSITION,
           ContentDisposition.attachment()
-              .filename(reportName + "." + format)
+              .filename(reportName + "." + fileFormat)
               .build().toString())
       .body(resource);
   }

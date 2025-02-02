@@ -1,19 +1,18 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
-<jasperReport name="status_check" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b766f75-39ac-42e9-9e3b-a4bc88a68894">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="NO_DATA_ADAPTER"/>
+<jasperReport name="status_check" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b766f75-39ac-42e9-9e3b-a4bc88a68894">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="client_message" class="java.lang.String">
+		<defaultValueExpression><![CDATA["client_message request parameter is not set."]]></defaultValueExpression>
+	</parameter>
 	<query language="sql"><![CDATA[]]></query>
-	<background splitType="Stretch"/>
-	<title height="79" splitType="Stretch">
-		<element kind="staticText" uuid="232cb217-5575-436c-82a6-a8a29a904f92" x="33" y="17" width="207" height="30">
-			<text><![CDATA[Report server is running]]></text>
+	<background height="49" splitType="Stretch">
+		<element kind="textField" uuid="b6d8c7b7-ee22-47f5-bbe0-8341005c8a33" x="0" y="0" width="290" height="20">
+			<expression><![CDATA[$P{client_message}]]></expression>
+		</element>
+	</background>
+	<title height="72" splitType="Stretch">
+		<element kind="textField" uuid="308141bb-eb8a-4be0-b503-e0fd28b60b13" x="10" y="32" width="540" height="30" fontSize="16.0" hTextAlign="Center">
+			<expression><![CDATA["Status check"]]></expression>
 		</element>
 	</title>
-	<pageHeader height="35" splitType="Stretch"/>
-	<columnHeader height="61" splitType="Stretch"/>
-	<detail>
-		<band height="125" splitType="Stretch"/>
-	</detail>
-	<columnFooter height="45" splitType="Stretch"/>
-	<pageFooter height="54" splitType="Stretch"/>
-	<summary height="42" splitType="Stretch"/>
 </jasperReport>

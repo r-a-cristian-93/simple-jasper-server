@@ -2,7 +2,7 @@ package com.jasper.server.jasper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 
 import net.sf.jasperreports.engine.JRException;
@@ -18,7 +18,7 @@ import org.springframework.util.ResourceUtils;
 
 @Service
 public class JasperReportService {
-  public byte[] getReport(String reportName, String format) throws RuntimeException {
+  public byte[] getReport(String reportName, String fileFormat, Map<String, Object> reportParameters) throws RuntimeException {
 
     JasperReport jasperReport = null;
 
@@ -34,10 +34,9 @@ public class JasperReportService {
     byte[] reportContent = null;
 
     try {
-      JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(null);
-      Map<String, Object> parameters = new HashMap<>();
-      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
-      switch (format) {
+      JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(Collections.emptyList());
+      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters, dataSource);
+      switch (fileFormat) {
         case "pdf" -> reportContent = JasperExportManager.exportReportToPdf(jasperPrint);
         case "xml" -> reportContent = JasperExportManager.exportReportToXml(jasperPrint).getBytes();
         default -> throw new RuntimeException("Unknown report format");
