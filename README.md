@@ -3,6 +3,7 @@
 
 * Go to
 http://localhost:8080/reports/status_check?fileFormat=pdf&client_message=Hello
+http://localhost:8080/reports/pokemon?fileFormat=pdf
 
 # Deploy
 * Package in a single jar file

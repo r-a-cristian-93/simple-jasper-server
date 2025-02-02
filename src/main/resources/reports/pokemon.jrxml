@@ -1,0 +1,231 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="pokemon_arena_report" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f12cd9b-8231-448a-a49d-92fbc788bd9f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="pokemon_list_dataset" uuid="8aabac27-d6e5-4e66-9507-143ec0173b61">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon.jrdax"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<query language="SQL"><![CDATA[SELECT 	id,
+	name,
+	type,
+	level,
+	hp,
+	attack,
+	defense
+FROM pokemon
+ORDER BY id]]></query>
+		<field name="name" class="java.lang.String">
+			<description><![CDATA[name]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="name"/>
+		</field>
+		<field name="type" class="java.lang.String">
+			<description><![CDATA[type]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="type"/>
+		</field>
+		<field name="level" class="java.lang.Integer">
+			<description><![CDATA[level]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="level"/>
+		</field>
+		<field name="hp" class="java.lang.Integer">
+			<description><![CDATA[hp]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="hp"/>
+		</field>
+		<field name="attack" class="java.lang.Integer">
+			<description><![CDATA[attack]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="attack"/>
+		</field>
+		<field name="defense" class="java.lang.Integer">
+			<description><![CDATA[defense]]></description>
+			<property name="net.sf.jasperreports.json.field.expression" value="defense"/>
+		</field>
+	</dataset>
+	<query language="SQL"><![CDATA[SELECT name,
+	type,
+	level,
+	hp,
+	attack,
+	defense
+FROM pokemon]]></query>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="type"/>
+		<property name="com.jaspersoft.studio.field.label" value="type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="level" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="level"/>
+		<property name="com.jaspersoft.studio.field.label" value="level"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="hp" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="hp"/>
+		<property name="com.jaspersoft.studio.field.label" value="hp"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="attack" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="attack"/>
+		<property name="com.jaspersoft.studio.field.label" value="attack"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="defense" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="defense"/>
+		<property name="com.jaspersoft.studio.field.label" value="defense"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<background height="110" splitType="Stretch">
+		<element kind="component" uuid="b007b467-9372-4a07-ae3f-f5a874c4241b" x="0" y="40" width="555" height="70">
+			<component kind="table">
+				<datasetRun uuid="daf2e6b9-8006-4a60-927f-e93eda9e4c2f" subDataset="pokemon_list_dataset">
+					<connectionExpression><![CDATA[$P{REPORT_CONNECTION} ]]></connectionExpression>
+				</datasetRun>
+				<detail/>
+				<column kind="single" uuid="66ca5d51-5878-4199-b751-903f8292d2a6" width="81">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="2c27824e-1afe-4a01-95f8-0268897ff227" x="0" y="0" width="33" height="30">
+							<text><![CDATA[name]]></text>
+						</element>
+						<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="bd9139ea-74a5-47c1-88a8-dbf39f5950e1" x="0" y="0" width="81" height="30">
+							<expression><![CDATA[$F{name}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+				</column>
+				<column kind="single" uuid="b85d9e04-08bf-49c3-bb64-1865ef597331" width="89">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="23641f49-9f1d-4b88-b5e0-8842b2f27dfe" x="0" y="0" width="89" height="30">
+							<text><![CDATA[type]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="499f3694-aa81-4c44-89b2-149da268658b" x="0" y="0" width="89" height="30">
+							<expression><![CDATA[$F{type}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+				</column>
+				<column kind="single" uuid="308c7783-8c7e-473e-8519-1a25f2dd1ea9" width="109">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="59256890-133d-4b2d-a726-32eaca386342" x="0" y="0" width="109" height="30">
+							<text><![CDATA[level]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="1827eaf7-1649-4793-aa9c-546eebe0a04d" x="0" y="0" width="109" height="30">
+							<expression><![CDATA[$F{level}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+				</column>
+				<column kind="single" uuid="3e0188d2-5b6b-4d86-8a19-2536767aa81a" width="91">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="92662582-8371-4976-9764-6a35a5e049fe" x="0" y="0" width="91" height="30">
+							<text><![CDATA[hp]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="f2552233-7ab0-490e-8134-69d183b6ab7e" x="0" y="0" width="91" height="30">
+							<expression><![CDATA[$F{hp}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+				</column>
+				<column kind="single" uuid="a4b589d7-85ea-48ea-a0bf-0c916e5104e4" width="89">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="cc94dc45-0ee6-4ba4-8cc7-57bf5935df50" x="0" y="0" width="89" height="30">
+							<text><![CDATA[attack]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="405ef96b-6483-4838-bdc0-9e44c3613fe6" x="0" y="0" width="89" height="30">
+							<expression><![CDATA[$F{attack}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+				</column>
+				<column kind="single" uuid="b045758f-dd26-4b1f-a038-a76f800c18ef" width="95">
+					<columnHeader height="30" style="Table 1_CH">
+						<element kind="staticText" uuid="4721c78b-185f-4795-81fb-fd3404b4cd24" x="0" y="0" width="95" height="30">
+							<text><![CDATA[defense]]></text>
+						</element>
+					</columnHeader>
+					<detailCell height="30" style="Table 1_TD">
+						<element kind="textField" uuid="948256d6-92ac-4f68-9012-9a373fd11c44" x="0" y="0" width="95" height="30">
+							<expression><![CDATA[$F{defense}]]></expression>
+						</element>
+					</detailCell>
+					<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+				</column>
+			</component>
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
+			<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
+			<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
+		</element>
+	</background>
+	<title height="33" splitType="Stretch">
+		<element kind="staticText" uuid="d13802eb-e18a-429f-8090-ae4063b23d23" x="0" y="0" width="100" height="30">
+			<text><![CDATA[Pokemon list]]></text>
+		</element>
+	</title>
+</jasperReport>
