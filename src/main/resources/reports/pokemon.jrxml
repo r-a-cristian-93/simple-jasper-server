@@ -1,7 +1,7 @@
 <!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
 <jasperReport name="pokemon_arena_report" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f12cd9b-8231-448a-a49d-92fbc788bd9f">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon.jrdax"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon_postgres.jrdax"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
@@ -56,9 +56,9 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<dataset name="pokemon_list_dataset" uuid="8aabac27-d6e5-4e66-9507-143ec0173b61">
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon.jrdax"/>
+	<dataset name="pokemon_postgres" uuid="8aabac27-d6e5-4e66-9507-143ec0173b61">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="pokemon_postgres.jrdax"/>
 		<query language="SQL"><![CDATA[SELECT 	id,
 	name,
 	type,
@@ -95,19 +95,27 @@ ORDER BY id]]></query>
 	</dataset>
 	<query language="SQL"><![CDATA[SELECT name,
 	type,
+	id,
 	level,
 	hp,
 	attack,
 	defense
 FROM pokemon]]></query>
 	<field name="name" class="java.lang.String">
+		<description><![CDATA[name]]></description>
 		<property name="com.jaspersoft.studio.field.name" value="name"/>
 		<property name="com.jaspersoft.studio.field.label" value="name"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+		<property name="net.sf.jasperreports.json.field.expression" value="name"/>
 	</field>
 	<field name="type" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="type"/>
 		<property name="com.jaspersoft.studio.field.label" value="type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
 	</field>
 	<field name="level" class="java.lang.Integer">
@@ -130,12 +138,10 @@ FROM pokemon]]></query>
 		<property name="com.jaspersoft.studio.field.label" value="defense"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
 	</field>
-	<background height="110" splitType="Stretch">
+	<background height="134">
 		<element kind="component" uuid="b007b467-9372-4a07-ae3f-f5a874c4241b" x="0" y="40" width="555" height="70">
-			<component kind="table">
-				<datasetRun uuid="daf2e6b9-8006-4a60-927f-e93eda9e4c2f" subDataset="pokemon_list_dataset">
-					<connectionExpression><![CDATA[$P{REPORT_CONNECTION} ]]></connectionExpression>
-				</datasetRun>
+			<component kind="table" whenNoDataType="AllSectionsNoDetail">
+				<datasetRun uuid="1f9e1a36-76c4-4e59-81c3-998c74c06f4c" subDataset="pokemon_postgres"/>
 				<detail/>
 				<column kind="single" uuid="66ca5d51-5878-4199-b751-903f8292d2a6" width="81">
 					<columnHeader height="30" style="Table 1_CH">

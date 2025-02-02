@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <jdbcDataAdapter class="net.sf.jasperreports.data.jdbc.JdbcDataAdapterImpl">
-	<name>pokemon</name>
+	<name>pokemon_postgres</name>
 	<driver>org.postgresql.Driver</driver>
 	<username>postgres</username>
 	<password>postgres</password>

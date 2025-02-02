@@ -2,19 +2,20 @@ package com.jasper.server.jasper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Collections;
 import java.util.Map;
 
+import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRSaver;
+
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
+
 
 @Service
 public class JasperReportService {
@@ -34,8 +35,7 @@ public class JasperReportService {
     byte[] reportContent = null;
 
     try {
-      JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(Collections.emptyList());
-      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters, dataSource);
+      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters, new JREmptyDataSource());
       switch (fileFormat) {
         case "pdf" -> reportContent = JasperExportManager.exportReportToPdf(jasperPrint);
         case "xml" -> reportContent = JasperExportManager.exportReportToXml(jasperPrint).getBytes();

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsonDataAdapter class="net.sf.jasperreports.data.json.JsonDataAdapterImpl">
+	<name>pokemon_json</name>
+	<dataFile type="httpDataLocation">
+		<method>GET</method>
+		<url>https://pokeapi.co/api/v2/pokemon?limit=10</url>
+		<username></username>
+		<password></password>
+	</dataFile>
+	<selectExpression></selectExpression>
+	<locale>en_US</locale>
+	<timeZone>Europe/Bucharest</timeZone>
+	<useConnection>true</useConnection>
+	<language>json</language>
+</jsonDataAdapter>
