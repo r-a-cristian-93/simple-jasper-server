@@ -138,10 +138,14 @@ FROM pokemon]]></query>
 		<property name="com.jaspersoft.studio.field.label" value="defense"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="pokemon"/>
 	</field>
-	<background height="134">
+	<background height="134"/>
+	<title height="110" splitType="Stretch">
+		<element kind="staticText" uuid="d13802eb-e18a-429f-8090-ae4063b23d23" x="0" y="0" width="100" height="30">
+			<text><![CDATA[Pokemon list]]></text>
+		</element>
 		<element kind="component" uuid="b007b467-9372-4a07-ae3f-f5a874c4241b" x="0" y="40" width="555" height="70">
 			<component kind="table" whenNoDataType="AllSectionsNoDetail">
-				<datasetRun uuid="1f9e1a36-76c4-4e59-81c3-998c74c06f4c" subDataset="pokemon_postgres"/>
+				<datasetRun uuid="2e26cd2f-c91b-4c6b-9582-712a6c89f188" subDataset="pokemon_postgres"/>
 				<detail/>
 				<column kind="single" uuid="66ca5d51-5878-4199-b751-903f8292d2a6" width="81">
 					<columnHeader height="30" style="Table 1_CH">
@@ -227,11 +231,6 @@ FROM pokemon]]></query>
 			<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 			<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
 			<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
-		</element>
-	</background>
-	<title height="33" splitType="Stretch">
-		<element kind="staticText" uuid="d13802eb-e18a-429f-8090-ae4063b23d23" x="0" y="0" width="100" height="30">
-			<text><![CDATA[Pokemon list]]></text>
 		</element>
 	</title>
 </jasperReport>

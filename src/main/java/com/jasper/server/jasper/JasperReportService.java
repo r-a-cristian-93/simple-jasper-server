@@ -35,7 +35,7 @@ public class JasperReportService {
     byte[] reportContent = null;
 
     try {
-      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters, new JREmptyDataSource());
+      JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters);
       switch (fileFormat) {
         case "pdf" -> reportContent = JasperExportManager.exportReportToPdf(jasperPrint);
         case "xml" -> reportContent = JasperExportManager.exportReportToXml(jasperPrint).getBytes();
